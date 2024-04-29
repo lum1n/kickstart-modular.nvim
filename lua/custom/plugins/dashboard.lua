@@ -40,7 +40,7 @@ return {
         },
         packages = { enable = true },
         project = { enable = true, action = 'require("persistence").load()' },
-        mru = { limit = 10, icon = 'your icon', label = 'Recent Files', cwd_only = false },
+        -- mru = { limit = 10, icon = 'your icon', label = 'Recent Files', cwd_only = false },
         footer = { '󰣙 Do. Or do not. There is no try. 󰣙' },
       },
     }
