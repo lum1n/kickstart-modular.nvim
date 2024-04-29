@@ -39,6 +39,7 @@ return {
       -- See `:help cmp`
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
+      local lspkind = require 'lspkind'
       luasnip.config.setup {}
 
       cmp.setup {
@@ -50,23 +51,30 @@ return {
         completion = { completeopt = 'menu,menuone,noinsert' },
         window = {
           completion = {
-            winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,Search:None',
+            winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,Search:Pmenu',
             col_offset = -3,
             side_padding = 0,
+            border = 'rounded',
+          },
+          documentation = {
             border = 'rounded',
           },
         },
         formatting = {
           expandable_indicator = true,
           fields = { 'kind', 'abbr', 'menu' },
+
           format = function(entry, vim_item)
-            local kind = require('lspkind').cmp_format { mode = 'symbol_text', maxwidth = 50 }(entry, vim_item)
+            local kind = lspkind.cmp_format { mode = 'symbol_text', maxwidth = 50, preset = 'codicons' }(entry, vim_item)
             local strings = vim.split(kind.kind, '%s', { trimempty = true })
             kind.kind = ' ' .. (strings[1] or '') .. ' '
             kind.menu = '    (' .. (strings[2] or '') .. ')'
 
             return kind
           end,
+        },
+        experimental = {
+          ghost_text = true,
         },
         -- For an understanding of why these mappings were
         -- chosen, you will need to read `:help ins-completion`

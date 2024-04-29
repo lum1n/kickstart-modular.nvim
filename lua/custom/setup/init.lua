@@ -1,1 +1,2 @@
-require 'custom.plugins.init'
+require 'custom.setup.lualine'
+require 'custom.setup.harpoon'
