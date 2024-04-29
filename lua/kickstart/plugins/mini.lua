@@ -52,6 +52,7 @@ return {
         },
       }
       require('mini.comment').setup()
+      require('mini.files').setup()
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
@@ -80,6 +81,21 @@ return {
       { "<leader>bD", function() require("mini.bufremove").delete(0, true) end, desc = "[D]elete Buffer (Force)" },
 
       -- pairs
+      {
+        '<leader>up',
+        function()
+          vim.g.minipairs_disable = not vim.g.minipairs_disable
+          if vim.g.minipairs_disable then
+            require('noice').notify('Disabled auto pairs', 'warn') --   LazyVim.warn('Disabled auto pairs', { title = 'Option' })
+          else
+            require('noice').notify('Enabled auto pairs', 'info') --   LazyVim.warn('Disabled auto pairs', { title = 'Option' })
+          end
+        end,
+        desc = 'Toggle Auto Pairs',
+      },
+
+      -- files
+      { '<leader>o', '<cmd>lua MiniFiles.open()<CR>', desc = '[O]pen MiniFiles' },
     },
   },
 }
