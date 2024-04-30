@@ -60,7 +60,7 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- Customization for Pmenu
-vim.api.nvim_set_hl(0, 'PmenuSel', { bg = '#282C34', fg = '#e4e4e4' })
+vim.api.nvim_set_hl(0, 'PmenuSel', { bg = '#e4e4e4', fg = '#e4e4e4' })
 vim.api.nvim_set_hl(0, 'Pmenu', { fg = '#C5CDD9', bg = '#22252A' })
 
 vim.api.nvim_set_hl(0, 'CmpItemAbbrDeprecated', { fg = '#7E8294', bg = 'NONE', strikethrough = true })
