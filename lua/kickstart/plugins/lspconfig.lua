@@ -68,7 +68,9 @@ return {
           map('gy', function()
             require('telescope.builtin').lsp_type_definitions { reuse_win = true }
           end, 'Goto T[y]pe Definition')
-          map('K', vim.lsp.buf.hover, 'Hover')
+          map('K', function()
+            require('pretty_hover').hover()
+          end, 'Hover')
           map('gK', vim.lsp.buf.signature_help, 'Signature Help')
           vim.keymap.set('i', '<c-k>', vim.lsp.buf.signature_help, { desc = 'Signature Help' })
           vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code Action' })
