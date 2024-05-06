@@ -101,4 +101,8 @@ vim.api.nvim_set_hl(0, 'CmpItemKindInterface', { fg = '#D8EEEB', bg = '#58B5A8' 
 vim.api.nvim_set_hl(0, 'CmpItemKindColor', { fg = '#008000', bg = '#58B5A8' })
 vim.api.nvim_set_hl(0, 'CmpItemKindTypeParameter', { fg = '#D8EEEB', bg = '#58B5A8' })
 
+vim.filetype.add { pattern = {
+  ['.?env.*'] = 'sh',
+} }
+
 -- vim: ts=2 sts=2 sw=2 et
